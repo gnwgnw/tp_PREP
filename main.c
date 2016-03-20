@@ -29,10 +29,9 @@ int main(int argc, char* argv[])
     Matrix* transp = create_matrix(transpRows, transpCols);
     
     double val = 0.0;
-    int i, j;
-    for (i = 0; i < transpRows; i++)
+    for (int i = 0; i < transpRows; i++)
     {
-        for (j = 0; j < transpCols; j++)
+        for (int j = 0; j < transpCols; j++)
         {
             val = get_elem(matrix, j, i);
             set_elem(transp, i, j, val);
@@ -40,9 +39,9 @@ int main(int argc, char* argv[])
     }
     
     
-    for (i = 0; i < matrixRows; i++)
+    for (int i = 0; i < matrixRows; i++)
     {
-        for (j = 0; j < matrixCols; j++)
+        for (int j = 0; j < matrixCols; j++)
         {
             printf("%lf \t", get_elem(matrix, i, j));
         }
@@ -51,9 +50,9 @@ int main(int argc, char* argv[])
     
     putchar('\n');
    
-    for (i = 0; i < transpRows; i++)
+    for (int i = 0; i < transpRows; i++)
     {
-        for (j = 0; j < transpCols; j++)
+        for (int j = 0; j < transpCols; j++)
         {
             printf("%lf \t", get_elem(transp, i, j));
         }

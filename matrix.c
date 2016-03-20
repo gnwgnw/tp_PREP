@@ -3,6 +3,10 @@
 
 Matrix* create_matrix_from_file(FILE* file)
 {
+    if (file == NULL)
+    {
+        return NULL;
+    }
     int rows = 0;
     int cols = 0;
     fscanf(file, "%d%d", &rows, &cols);

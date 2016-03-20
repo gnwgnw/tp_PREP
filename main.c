@@ -16,33 +16,33 @@ int main(int argc, char* argv[])
         return 2;
     }
     
-    int rows = 0;
-    int cols = 0;
-    
-    fscanf(pFile, "%d%d", &rows, &cols);
-    
-    fseek(pFile, 0, SEEK_SET);
-    
     Matrix* matrix = create_matrix_from_file(pFile);
     
     fclose(pFile);
     
-    Matrix* transp = create_matrix(cols, rows);
+    int matrixRows = get_rows(matrix);
+    int matrixCols = get_cols(matrix);
+    
+    int transpCols = matrixRows;
+    int transpRows = matrixCols;
+    
+    Matrix* transp = create_matrix(transpRows, transpCols);
     
     double val = 0.0;
     int i, j;
-    for (i = 0; i < cols; i++)
+    for (i = 0; i < transpRows; i++)
     {
-        for (j = 0; j < rows; j++)
+        for (j = 0; j < transpCols; j++)
         {
             val = get_elem(matrix, j, i);
             set_elem(transp, i, j, val);
         }
     }
     
-    for (i = 0; i < rows; i++)
+    
+    for (i = 0; i < matrixRows; i++)
     {
-        for (j = 0; j < cols; j++)
+        for (j = 0; j < matrixCols; j++)
         {
             printf("%lf \t", get_elem(matrix, i, j));
         }
@@ -51,9 +51,9 @@ int main(int argc, char* argv[])
     
     putchar('\n');
    
-    for (i = 0; i < cols; i++)
+    for (i = 0; i < transpRows; i++)
     {
-        for (j = 0; j < rows; j++)
+        for (j = 0; j < transpCols; j++)
         {
             printf("%lf \t", get_elem(transp, i, j));
         }

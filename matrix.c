@@ -10,10 +10,9 @@ Matrix* create_matrix_from_file(FILE* file)
     Matrix* matrix = create_matrix(rows, cols);
     
     double val = 0.0;
-    int i, j;
-    for (i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++)
         {
             fscanf(file, "%lf", &val);
             set_elem(matrix, i, j, val);
@@ -29,8 +28,7 @@ Matrix* create_matrix(int row, int col)
     matrix->rows = row;
     matrix->cols = col;
     matrix->items = malloc(row * sizeof(double*));
-    int i;
-    for (i = 0; i < row; i++)
+    for (int i = 0; i < row; i++)
     {
         matrix->items[i] = malloc(col * sizeof(double));
     }
@@ -39,8 +37,7 @@ Matrix* create_matrix(int row, int col)
 
 void free_matrix(Matrix* matrix)
 {
-    int i;
-    for (i = 0; i < matrix->rows; i++)
+    for (int i = 0; i < matrix->rows; i++)
     {
         free(matrix->items[i]);
     }

@@ -24,6 +24,10 @@ Matrix* create_matrix_from_file(FILE* file)
 
 Matrix* create_matrix(int row, int col)
 {
+    if (row <= 0 || col <= 0)
+    {
+        return NULL;
+    }
     Matrix* matrix = malloc(sizeof(Matrix));
     matrix->rows = row;
     matrix->cols = col;
@@ -47,11 +51,27 @@ void free_matrix(Matrix* matrix)
 
 double get_elem(Matrix* matrix, int row, int col)
 {
+    if (row < 0)
+    {
+        row = 0;
+    }
+    if (col < 0)
+    {
+        col = 0;
+    }
     return matrix->items[row][col];
 }
 
 void set_elem(Matrix* matrix, int row, int col, double val)
 {
+    if (row < 0)
+    {
+        row = 0;
+    }
+    if (col < 0)
+    {
+        col = 0;
+    }
     matrix->items[row][col] = val;
 }
 

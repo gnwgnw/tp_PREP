@@ -57,3 +57,13 @@ void set_elem(Matrix* matrix, int row, int col, double val)
 {
     matrix->items[row][col] = val;
 }
+
+int get_rows(Matrix* matrix)
+{
+    return matrix->rows;
+}
+
+int get_cols(Matrix* matrix)
+{
+    return matrix->cols;
+}

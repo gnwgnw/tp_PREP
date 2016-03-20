@@ -6,7 +6,9 @@ Matrix* create_matrix_from_file(FILE* file)
     int rows = 0;
     int cols = 0;
     fscanf(file, "%d%d", &rows, &cols);
+    
     Matrix* matrix = create_matrix(rows, cols);
+    
     double val = 0.0;
     int i, j;
     for (i = 0; i < rows; i++)
@@ -17,22 +19,22 @@ Matrix* create_matrix_from_file(FILE* file)
             set_elem(matrix, i, j, val);
         }
     }
+    
     return matrix;
 }
 
 Matrix* create_matrix(int row, int col)
 {
-    Matrix matrix;
-    Matrix* pMatrix = &matrix;
-    pMatrix->rows = row;
-    pMatrix->cols = col;
-    pMatrix->items = malloc(row * sizeof(double*));
+    Matrix* matrix = malloc(sizeof(Matrix));
+    matrix->rows = row;
+    matrix->cols = col;
+    matrix->items = malloc(row * sizeof(double*));
     int i;
     for (i = 0; i < row; i++)
     {
-        pMatrix->items[i] = malloc(col * sizeof(double));
+        matrix->items[i] = malloc(col * sizeof(double));
     }
-    return pMatrix;
+    return matrix;
 }
 
 void free_matrix(Matrix* matrix)
@@ -43,6 +45,7 @@ void free_matrix(Matrix* matrix)
         free(matrix->items[i]);
     }
     free(matrix->items);
+    free(matrix);
 }
 
 double get_elem(Matrix* matrix, int row, int col)

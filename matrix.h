@@ -3,8 +3,11 @@
 
 #include <stdio.h>
 
-typedef struct Matrix {
-    //TODO
+typedef struct Matrix
+{
+    double** items;
+    int rows;
+    int cols;
 } Matrix;
 
 Matrix* create_matrix_from_file(FILE* file);

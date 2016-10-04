@@ -2,9 +2,17 @@
 #define _MATRIX_H_
 
 #include <stdio.h>
+#include <malloc.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 typedef struct Matrix {
-    //TODO
+	uint32_t rows;
+	uint32_t cols;
+    uint32_t row;
+    uint32_t col;
+    double val;
 } Matrix;
 
 Matrix* create_matrix_from_file(FILE* file);

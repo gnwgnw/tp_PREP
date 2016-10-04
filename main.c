@@ -32,5 +32,5 @@ int main(int argc, char* argv[]) {
     printf("Euclidean norm: %lf\n", get_euclidean_norm(p));
     fclose(file);
     free_matrix(p);
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

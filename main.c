@@ -38,17 +38,7 @@ int main(int argc, char* argv[])
 
 	Matrix* M_t = create_matrix(cols, rows);
 
-	for (int i = 0; i < cols; i++)
-	{
-		for (int j = 0; j < rows; j++)
-		{
-			M_t[i].row = i;
-			M_t[i].col = j;
-			M_t[i].val = 0;
-			M_t[i].cols = rows;
-			M_t[i].rows = cols;
-		}
-	}
+
 
 	//Transporation
 	for (int i = 0; i < cols; i++)

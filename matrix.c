@@ -19,7 +19,7 @@ Matrix* create_matrix_from_file(FILE* file)
 		printf("Error if file format!\n");
 	}
 
-	for (int i = 0; i < rows; i++)
+/*	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
 		{
@@ -29,7 +29,7 @@ Matrix* create_matrix_from_file(FILE* file)
 			M[i].cols = cols;
 			M[i].rows = rows;
 		}
-	}
+	}*/
 
 	uint32_t row, col;
 	double val;
@@ -57,6 +57,18 @@ Matrix* create_matrix(int row, int col)
 	{
 		printf("Could not allocate memory for matrix!\n");
 		return NULL;
+	}
+
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
+		{
+			ptr[i].row = i;
+			ptr[i].col = j;
+			ptr[i].val = 0;
+			ptr[i].rows = row;
+			ptr[i].cols = col;
+		}
 	}
 	return ptr;
 }

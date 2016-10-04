@@ -4,14 +4,16 @@
 #include <stdio.h>
 
 typedef struct Matrix {
-    //TODO
+    double** arr;
+    int rows; //строки
+    int cols; // столбцы
 } Matrix;
 
 Matrix* create_matrix_from_file(FILE* file);
-Matrix* create_matrix(int row, int col);
+Matrix* create_matrix(const int row,const int col);
 void free_matrix(Matrix* matrix);
-double get_elem(Matrix* matrix, int row, int col);
-void set_elem(Matrix* matrix, int row, int col, double val);
+double get_elem(Matrix* matrix,const int row,const int col);
+void set_elem(Matrix* matrix,const int row,const int col,const double val);
 int get_rows(Matrix* matrix);
 int get_cols(Matrix* matrix);
 

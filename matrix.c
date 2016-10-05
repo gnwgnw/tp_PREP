@@ -78,6 +78,7 @@ Matrix* create_matrix_from_file(FILE* file) {
 			}
 		}
 	}
+	free(string);
 	return matrix;
 }
 

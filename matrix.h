@@ -5,6 +5,9 @@
 
 typedef struct Matrix {
     //TODO
+    double row;
+	double col;
+	double** value;
 } Matrix;
 
 Matrix* create_matrix_from_file(FILE* file);

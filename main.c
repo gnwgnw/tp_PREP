@@ -17,13 +17,13 @@ int main(int argc, char* argv[])
 	int cols_2 = get_cols(matrix2);
 	for (int i = 0; i < rows_1; i++) {
 		for (int j = 0; j < cols_1; j++)
-			printf("%.3f ", *(*((*matrix1).value + i) + j));
+			printf("%.3f ", get_elem(matrix1, i ,j));
 		printf("\n");
 	}
 	printf("\n");
 	for (int i = 0; i < rows_1; i++) {
                 for (int j = 0; j < cols_1; j++) 
-                        printf("%.3f ", *(*((*matrix2).value + i) + j));
+                        printf("%.3f ", get_elem(matrix2, i ,j));
                 printf("\n");
         }
         printf("\n");
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	}
 	for (int i = 0; i < rows_1; i++) {
 		for (int j = 0; j < cols_1; j++) {
-			printf("%.3f ", *(*((*matrix1).value + i) + j) + *(*((*matrix2).value + i) + j));
+			printf("%.3f ",  get_elem(matrix1, i ,j) +  get_elem(matrix2, i ,j));
 		}
 		printf("\n");
 	}

@@ -4,7 +4,9 @@
 #include <stdio.h>
 
 typedef struct Matrix {
-    //TODO
+    double **ptr;
+    int row;
+    int col;
 } Matrix;
 
 Matrix* create_matrix_from_file(FILE* file);

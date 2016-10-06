@@ -1,11 +1,16 @@
+//Барсуков Сергей
+
 #ifndef _MATRIX_H_
 #define _MATRIX_H_
 
 #include <stdio.h>
 
 typedef struct Matrix {
-    //TODO
+    int rows;
+    int cols;
+    double **matrix;
 } Matrix;
+
 
 Matrix* create_matrix_from_file(FILE* file);
 Matrix* create_matrix(int row, int col);

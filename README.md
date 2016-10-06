@@ -1,8 +1,9 @@
 # tp_PREP
 
 В header-файле имеются следующие строки
-  #define SPARSE_FILE
-//#undef SPARSE_FILE
+ 
+    #define SPARSE_FILE 
+    //#undef SPARSE_FILE
 
 Если на вход программе подается файл с разреженной структурой, необходимо определить SPRASE_FILE/
 Если файл неразреженный, SPRASE_FILE нужно разопределить

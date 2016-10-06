@@ -4,31 +4,35 @@
 #include "matrix.h"
 #include "generate_matrix.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     if (argc < 2) {
         printf("Need more arguments!\n");
         abort();
     }
 
-    FILE *fileInput = NULL;
-    
-    /*if (argv[argc-1] == "gen") {
-        generate_matrix_to_file(10,10,100);
-    }*/
-    
-    if ((fileInput = fopen(argv[1], "r")) == 0) {
-        printf("File not exists!\n");
-        return 1;
-    }
-    Matrix* mat = create_matrix_from_file(fileInput);
-    //print_matrix(mat);
-    printf("max-norm = %.3lf\n", max_norm(mat));
-    //printf("max-norm = %.3lf\nl-norm = %.3lf\ne-norm = %.3lf\n",
-    //               max_norm(mat), l_norm(mat), e_norm(mat));
-    //mat = transpose(mat);
-    print_matrix(mat);
-    free_matrix(man);
-    return 0;
-}
+   // if (strcmp(argv[2], "g") == 0) {	
+       // generate_matrix_to_file(5,5,10);	
+   // }										
 
+    const char *filePath = argv[1];
+    
+    FILE *file = NULL;
+    if ((file = fopen(filePath, "r")) == 0) {
+        fprintf(stderr, "File not exists!\n");
+        abort(); 
+    }
+
+    Matrix* mat = create_matrix_from_file(file);
+    Matrix* t_mat;
+    printf("Normal matrix:\n");
+    print_matrix(mat);
+    t_mat = transpose(mat);
+    printf("Transposed matrix:\n");
+    print_matrix(t_mat);
+    printf("max-norm = %.3lf\nl-norm = %.3lf\ne-norm = %.3lf\n",
+                    max_norm(mat), l_norm(mat), e_norm(mat));
+    free_matrix(t_mat);
+    free_matrix(mat);
+    return 0;
+
+}
